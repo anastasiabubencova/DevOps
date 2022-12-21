@@ -1,0 +1,14 @@
+---
+- hosts: lb
+  tasks:
+  - name: remove config
+    file:
+      state: absent
+      path: "/etc/nginx/nginx.conf"
+
+  - copy:
+      src: "new_conf"
+      dest: "/etc/nginx/nginx.conf"
+
+  - name: restart nginx
+    service: name=nginx state=restarted

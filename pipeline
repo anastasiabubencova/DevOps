@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Check out') {
+      steps {
+        git branch: 'main", url: " git@192.168.56.125 :anastasiabubencova/coursework.git', 
+        credentialsId: 'gitea-key"
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh "ansible-playbook install_nginx.yml -i hosts"
+        sh "ansible-playbook settings_nginx.yml -i hosts"
+        sh "ansible-playbook install_httpd.yml -i hosts"
+        sh 'ansible-playbook index_html.yml -i hosts'
+      }
+    }
+  }
+}

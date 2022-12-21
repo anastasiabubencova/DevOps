@@ -1,0 +1,8 @@
+---
+- hosts: lb
+  tasks:
+  - name: Install nginx
+    yum: name=nginx state=present
+
+  - name: Starting nginx
+    service: name=nginx state=started

@@ -1,0 +1,11 @@
+[lb]
+192.168.56.122 ansible_ssh_pass=root ansible_ssh_user=root
+
+[apps1]
+192.168.56.121 ansible_ssh_pass=root ansible_ssh_user=root
+
+[apps2]
+192.168.56.123 ansible_ssh_pass=root ansible_ssh_user=root
+
+[db]
+192.168.56.124 ansible_ssh_pass=root ansible_ssh_user=root

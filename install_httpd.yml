@@ -1,0 +1,16 @@
+---
+- hosts: apps1
+  tasks:
+  - name: Install httpd
+    yum: name=httpd state=present
+
+  - name: Starting httpd
+    service: name=httpd state=started
+
+- hosts: apps2
+  tasks:
+  - name: Install httpd
+    yum: name=httpd state=present
+
+  - name: Starting httpd
+    service: name=httpd state=started

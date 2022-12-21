@@ -1,0 +1,22 @@
+---
+- hosts: apps1
+  tasks:
+  - name: create index.html
+    file:
+      state: absent
+      path: "/var/www/html/index.html"
+
+  - copy:
+      src: "index_html_apps1.html"
+      dest: "/var/www/html/index.html"
+
+- hosts: apps2
+  tasks:
+  - name: create index.html
+    file:
+      state: absent
+      path: "/var/www/html/index.html"
+
+  - copy:
+      src: "index_html_apps2.html"
+      dest: "/var/www/html/index.html"
